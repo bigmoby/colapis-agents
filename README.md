@@ -160,4 +160,6 @@ The tests check every element the agents build against the properties the Colapi
 
 ## License
 
-[MIT](LICENSE). COLAPIS™ is a trademark of Fabio Mauro; the license covers this code, not the name or the logo.
+The code in this repository is released under the [MIT License](LICENSE): you are free to use, modify and redistribute it, in commercial projects too.
+
+COLAPIS™ is a trademark of Fabio Mauro. The license covers the code only and grants no right to the Colapis name or logo: you may say that your project works with Colapis, but not name a product or service after it or suggest that it is endorsed by Colapis.
