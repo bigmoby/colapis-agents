@@ -1,0 +1,53 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "colapis-agents"
+version = "0.1.0"
+description = "Example AI agents that work on Colapis Boards through its MCP server"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+authors = [{ name = "Fabio Mauro" }]
+keywords = ["colapis", "mcp", "agents", "whiteboard", "llm"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+  "Topic :: Office/Business :: Groupware",
+]
+dependencies = [
+  "mcp>=2.3,<3",
+  "httpx2>=2.16",
+  "starlette>=1.10",
+  "uvicorn>=0.54",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=9", "pytest-asyncio>=1.2", "ruff>=0.14"]
+
+[project.urls]
+Colapis = "https://colapis.it"
+
+[project.scripts]
+colapis-md-to-board = "colapis_agents.md_to_board.cli:main"
+colapis-repo-to-board = "colapis_agents.repo_to_board.cli:main"
+colapis-board-to-md = "colapis_agents.board_to_md.cli:main"
+colapis-backlog-sync = "colapis_agents.backlog_sync.cli:main"
+colapis-retro = "colapis_agents.retro_facilitator.cli:main"
+colapis-standup = "colapis_agents.standup_reporter.cli:main"
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+# The system prompts are prose: their lines stay whole
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"

@@ -1,0 +1,26 @@
+# Copy to .github/workflows/standup.yml in your own repository: every weekday at
+# 9:00 UTC it posts the standup of your sprint Board to Slack. Add the three
+# secrets in Settings → Secrets and variables → Actions; never write keys here.
+name: Daily standup
+
+on:
+  schedule:
+    - cron: "0 9 * * 1-5"
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  standup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.14"
+      - run: pip install "git+https://github.com/bigmoby/colapis-agents"
+      - run: colapis-standup "Sprint" --slack
+        env:
+          COLAPIS_API_KEY: ${{ secrets.COLAPIS_API_KEY }}
+          LLM_PROVIDER: deepseek
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

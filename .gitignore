@@ -1,0 +1,24 @@
+# Secrets: keys live only in .env, which is never committed
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Outputs of the agents (they can hold the content of your Boards)
+output/
+*.plan.json
+plan.json
+preview.json
+context.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+.pytest_cache/
+.ruff_cache/
