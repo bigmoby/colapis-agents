@@ -2,6 +2,10 @@
 
 Example AI agents that work on [Colapis](https://colapis.it) Boards through its **MCP server**. Each one is a small command-line program you can run as it is, or read and adapt to build your own.
 
+[![md_to_board turns a Markdown document into a Colapis Board, and board_to_md reads it back as Markdown (53 s video)](docs/demo.jpg)](https://colapis.it/docs-site/assets/videos/mcp-en.mp4)
+
+*`md_to_board` turns a Markdown document into a Board, and `board_to_md` reads it back as Markdown (53 s video).*
+
 | Agent | What it does | AI |
 |---|---|---|
 | [`md_to_board`](#md_to_board) | Turns a Markdown document into a Board: frames, task cards, sticky notes, shapes and arrows | yes |
